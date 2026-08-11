@@ -15,13 +15,12 @@ void movfert(int dir, int amount) {
     for (auto [x, y] : fert) temp.push_back({(x + dx[dir] * amount - 1 + n) % n + 1, (y + dy[dir] * amount - 1 + n) % n + 1});
     fert.clear();
     for (auto [a, b] : temp) fert.push_back({a, b});
-
 }
 
 void addition() {
     int nx, ny;
     for (auto [x, y] : fert) {
-        for (int i = 2; i <= 8; i += 2) {
+        for (int i = 2; i <= 8; i = i + 2) {
             nx = x + dx[i];
             ny = y + dy[i];
             if (nx >= 1 && nx <= n && ny >= 1 && ny <= n) {
