@@ -9,7 +9,6 @@ vector<vector<int>> grid;
 vector<vector<bool>> visited;
 vector<pair<int, int>> selected;
 
-
 void find_max(int count){
     if (count == 4) {
         int res = 0;
@@ -31,31 +30,38 @@ void find_max(int count){
             }
         }
     }
-
 }
 
 
-int main() {
-    // Please write your code here.
-    cin >> n >> m;
-    grid.resize(n, vector<int>(m));
-    visited.resize(n, vector<bool>(m, false));
-
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j < m; j++){
-            cin >> grid[i][j];
-        }
-    }
-
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j < m; j++){
-            visited[i][j] = true;
+void solve(){
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
             selected.push_back({i, j});
+            visited[i][j] = true;
             find_max(1);
             selected.pop_back();
             visited[i][j] = false;
         }
     }
+}
+
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    cin >> n >> m;
+    grid.resize(n, vector<int>(m));
+    visited.resize(n, vector<bool>(m, false));
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            cin >> grid[i][j];
+        }
+    }
+    
+    solve();
+    
     cout << cur_max;
     return 0;
 }
