@@ -37,9 +37,6 @@ void find_max(int count){
 
 int main() {
     // Please write your code here.
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-
     cin >> n >> m;
     grid.resize(n, vector<int>(m));
     visited.resize(n, vector<bool>(m, false));
