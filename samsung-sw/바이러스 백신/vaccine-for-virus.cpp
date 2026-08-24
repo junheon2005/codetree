@@ -11,7 +11,6 @@ vector<vector<int>> grid;
 vector<vector<bool>> visited;
 vector<vector<int>> turn;
 vector<pair<int, int>> hospital;
-vector<bool> used;
 vector<pair<int, int>> selected;
 int dx[4] = {1, -1, 0, 0};
 int dy[4] = {0, 0, 1, -1};
@@ -84,7 +83,6 @@ int main() {
             if(grid[i][j] == 2) hospital.push_back(make_pair(i, j));
         }
     }
-    used.resize(hospital.size(), false);
     select(0, 0);
 
     if (res == 1000) cout << -1;
